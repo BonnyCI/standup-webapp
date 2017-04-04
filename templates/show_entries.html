@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
+  Prior Date: <a href="/show?date={{ prior_date }}">{{ prior_date }}</a><br/>
+  Next Date: <a href="/show?date={{ next_date }}">{{ next_date }}</a><br/>
+  <h1>{{ date_to_show }}</h1>
   <ul class=entries>
   {% for entry in entries %}
-  <h2>{{ entry.date }} - {{ entry.author }}</h2>
+  <h2>{{ entry.author }}</h2>
   <table>
     <tr>
       <td><b>Yesterday:</b></td><td>{{ entry.yesterday | safe }}</td>
@@ -15,7 +18,7 @@
     </tr>
   </table>
   {% else %}
-    <li><em>Unbelievable.  No entries here so far</em>
+    <li><em>No entries for this date</em>
   {% endfor %}
   </ul>
 {% endblock %}
