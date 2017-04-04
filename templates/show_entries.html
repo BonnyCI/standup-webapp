@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+  <ul class=entries>
+  {% for entry in entries %}
+  <h2>{{ entry.date }} - {{ entry.author }}</h2>
+  <table>
+    <tr>
+      <td><b>Yesterday:</b></td><td>{{ entry.yesterday | safe }}</td>
+    </tr>
+    <tr>
+      <td><b>Today:</b></td><td>{{ entry.today | safe }}</td>
+    </tr>
+    <tr>
+      <td><b>Blockers:</b></td><td>{{ entry.blockers | safe }}</td>
+    </tr>
+  </table>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
