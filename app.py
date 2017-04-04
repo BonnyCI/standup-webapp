@@ -3,11 +3,7 @@ from datetime import date, timedelta, datetime
 from flask import Flask, g, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-app.config.from_object(__name__)
-
-app.config.update(dict(
-    DATABASE='/home/bradonk/code/errbot-testing/data/plugins/standup.sqlite'
-))
+app.config.from_pyfile('standup.cfg', silent=True)
 
 @app.route('/')
 def index():
