@@ -9,6 +9,11 @@ app.config.update(dict(
     DATABASE='/home/bradonk/code/errbot-testing/data/plugins/standup.sqlite'
 ))
 
+@app.route('/')
+def index():
+    date_to_show = datetime.today().date()
+    return redirect(url_for('show_entries', year=date_to_show.year, month=date_to_show.month, day=date_to_show.day))
+
 # This helper is to simplify some logic
 @app.route('/show')
 def show():
