@@ -3,7 +3,8 @@ from datetime import date, timedelta, datetime
 from flask import Flask, g, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-app.config.from_pyfile('standup.cfg', silent=True)
+app.config.from_pyfile('/etc/standup/standup.cfg', silent=True)
+
 
 @app.route('/')
 def index():
@@ -54,3 +55,6 @@ def get_dates(year, month, day):
     else:
         next_date = date_to_show + timedelta(days=3)
     return (date_to_show, prior_date, next_date)
+
+if __name__ == "__main__":
+    app.run()
