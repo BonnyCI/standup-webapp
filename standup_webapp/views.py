@@ -1,10 +1,8 @@
+from standup_webapp import app
+
 import sqlite3
 from datetime import date, timedelta, datetime
-from flask import Flask, g, render_template, request, redirect, url_for
-
-app = Flask(__name__)
-app.config.from_pyfile('/etc/standup/standup.cfg', silent=True)
-
+from flask import g, render_template, request, redirect, url_for
 
 @app.route('/')
 def index():
