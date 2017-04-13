@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
-  Prior Date: <a href="/show?date={{ prior_date }}">{{ prior_date }}</a><br/>
-  Next Date: <a href="/show?date={{ next_date }}">{{ next_date }}</a><br/>
+  Prior Date: <a href="{{ url_for('show') }}?date={{ prior_date }}">{{ prior_date }}</a><br/>
+  Next Date: <a href="{{ url_for('show') }}?date={{ next_date }}">{{ next_date }}</a><br/>
   <h1>{{ date_to_show }}</h1>
   <ul class=entries>
   {% for entry in entries %}
